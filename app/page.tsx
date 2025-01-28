@@ -20,6 +20,8 @@ import { SkillsSectionContent } from "@/sections/SkillsSection/SkillsSection.typ
 import { skillsSectionQuery } from "@/sections/SkillsSection/SkillsSection.query";
 import { experienceSectionQuery } from "@/sections/ExperienceSection/ExperienceSection.query";
 import { ExperienceSectionContent } from "@/sections/ExperienceSection/ExperienceSection.types";
+import { contactSectionQuery } from "@/sections/ContactSection/ContactSection.query";
+import { ContactSectionContent } from "@/sections/ContactSection/ContactSection.types";
 
 const query = `
   query {
@@ -32,6 +34,7 @@ const query = `
       ${projectsSectionQuery}
       ${skillsSectionQuery}
       ${experienceSectionQuery}
+      ${contactSectionQuery}
       }
     }
   }
@@ -65,7 +68,9 @@ export default async function Home() {
         content={data.allSections[4].content as ExperienceSectionContent}
       />
 
-      <ContactSection />
+      <ContactSection
+        content={data.allSections[5].content as ContactSectionContent}
+      />
     </main>
   );
 }

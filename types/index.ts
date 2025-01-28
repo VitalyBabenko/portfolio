@@ -1,5 +1,6 @@
 import { links } from "@/lib/data";
 import { AboutSectionContent } from "@/sections/AboutSection/AboutSection.types";
+import { ContactSectionContent } from "@/sections/ContactSection/ContactSection.types";
 import { ExperienceSectionContent } from "@/sections/ExperienceSection/ExperienceSection.types";
 import { HeroSectionContent } from "@/sections/HeroSection/HeroSection.types";
 import { ProjectsSectionContent } from "@/sections/ProjectsSection/ProjectsSection.types";
@@ -36,7 +37,8 @@ export type Section = {
     | AboutSectionContent
     | ProjectsSectionContent
     | SkillsSectionContent
-    | ExperienceSectionContent;
+    | ExperienceSectionContent
+    | ContactSectionContent;
 };
 
 export interface AllSections {

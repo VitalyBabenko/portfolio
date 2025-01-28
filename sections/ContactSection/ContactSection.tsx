@@ -6,8 +6,10 @@ import { useSectionInView } from "@/hooks";
 import { sendEmail } from "@/actions/sendEmail";
 import SubmitBtn from "@/components/submit-btn";
 import toast from "react-hot-toast";
+import { ContactSectionProps } from "./ContactSection.types";
+import { StructuredText } from "react-datocms/structured-text";
 
-export default function ContactSection() {
+function ContactSection({ content }: ContactSectionProps) {
   const { ref } = useSectionInView("Contact");
 
   return (
@@ -28,15 +30,16 @@ export default function ContactSection() {
         once: true,
       }}
     >
-      <SectionHeading>Contact me</SectionHeading>
+      <SectionHeading>{content.title}</SectionHeading>
+      <StructuredText data={content.description} />
 
-      <p className="text-gray-700 -mt-6 dark:text-white/80">
+      {/* <p className="text-gray-700 -mt-6 dark:text-white/80">
         Please contact me directly at{" "}
         <a className="underline" href="mailto:babenko.vitaly12@gmail.com">
           babenko.vitaly12@gmail.com
         </a>{" "}
         or through this form.
-      </p>
+      </p> */}
 
       <form
         className="mt-10 flex flex-col dark:text-black"
@@ -71,3 +74,5 @@ export default function ContactSection() {
     </motion.section>
   );
 }
+
+export default ContactSection;
