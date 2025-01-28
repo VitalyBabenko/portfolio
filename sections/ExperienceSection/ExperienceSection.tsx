@@ -1,7 +1,6 @@
 "use client";
 
 import SectionHeading from "@/components/section-heading";
-import { experiencesData } from "@/lib/data";
 import { useSectionInView } from "@/hooks";
 import { useTheme } from "@/context/theme-context";
 import ExperienceBlock from "./ExperienceBlock/ExperienceBlock";
