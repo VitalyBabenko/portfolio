@@ -16,6 +16,10 @@ import { AllSections } from "@/types";
 import { HeroSectionContent } from "@/sections/HeroSection/HeroSection.types";
 import { projectsSectionQuery } from "@/sections/ProjectsSection/ProjectsSection.query";
 import { ProjectsSectionContent } from "@/sections/ProjectsSection/ProjectsSection.types";
+import { SkillsSectionContent } from "@/sections/SkillsSection/SkillsSection.types";
+import { skillsSectionQuery } from "@/sections/SkillsSection/SkillsSection.query";
+import { experienceSectionQuery } from "@/sections/ExperienceSection/ExperienceSection.query";
+import { ExperienceSectionContent } from "@/sections/ExperienceSection/ExperienceSection.types";
 
 const query = `
   query {
@@ -26,6 +30,8 @@ const query = `
       ${heroSectionQuery}
       ${aboutSectionQuery}
       ${projectsSectionQuery}
+      ${skillsSectionQuery}
+      ${experienceSectionQuery}
       }
     }
   }
@@ -37,7 +43,6 @@ export default async function Home() {
   });
 
   if (!data) return null;
-
   return (
     <main className="flex flex-col items-center px-4">
       <HeroSection
@@ -52,9 +57,14 @@ export default async function Home() {
         content={data.allSections[2].content as ProjectsSectionContent}
       />
 
-      <SkillsSection />
+      <SkillsSection
+        content={data.allSections[3].content as SkillsSectionContent}
+      />
 
-      <ExperienceSection />
+      <ExperienceSection
+        content={data.allSections[4].content as ExperienceSectionContent}
+      />
+
       <ContactSection />
     </main>
   );

@@ -1,7 +1,9 @@
 import { links } from "@/lib/data";
 import { AboutSectionContent } from "@/sections/AboutSection/AboutSection.types";
+import { ExperienceSectionContent } from "@/sections/ExperienceSection/ExperienceSection.types";
 import { HeroSectionContent } from "@/sections/HeroSection/HeroSection.types";
 import { ProjectsSectionContent } from "@/sections/ProjectsSection/ProjectsSection.types";
+import { SkillsSectionContent } from "@/sections/SkillsSection/SkillsSection.types";
 
 export type SectionName = (typeof links)[number]["name"];
 
@@ -29,7 +31,12 @@ export type SectionHash =
 export type Section = {
   id: string;
   hash: SectionHash;
-  content: HeroSectionContent | AboutSectionContent | ProjectsSectionContent;
+  content:
+    | HeroSectionContent
+    | AboutSectionContent
+    | ProjectsSectionContent
+    | SkillsSectionContent
+    | ExperienceSectionContent;
 };
 
 export interface AllSections {
